@@ -1,0 +1,30 @@
+main {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    min-height: 100vh;
+    font-family: 'Rubik', sans-serif;
+    background-color: #121212;
+}
+.server-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 20px;
+}
+.server-card {
+    background-color: #1e1e1e;
+    border-radius: 8px;
+    padding: 20px;
+    margin: 10px;
+    width: 300px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+.server-card-title {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+.server-card-text {
+    font-size: 1em;
+    color: #b0b0b0;
+}
