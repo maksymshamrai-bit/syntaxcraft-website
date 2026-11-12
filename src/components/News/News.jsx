@@ -43,6 +43,9 @@ export const News = () => {
                     <NewsCard key={article.id} article={article} />
                 ))}
             </div>
+            <a href="https://t.me/+ZaXXfDKhA442MWRk" target="_blank" rel="noopener noreferrer">
+                Підписатися на новини
+            </a>
         </section>
     )
 }

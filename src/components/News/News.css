@@ -15,7 +15,8 @@
     color: #ffffff;
 }
 .news-card {
-    background-color: #333;
+    background-color: #1e1e1e;
+    border-radius: 8px;
     color: #fff;
     padding: 20px;
     margin-bottom: 20px;
@@ -39,7 +40,7 @@
     font-size: 1rem;
 }
 .news-card-category {
-    color: #007bff;
+    color: #15aabb;
     font-size: 1rem;
 }
 .news-loading, .news-error {
@@ -47,4 +48,11 @@
 }
 .news-error {
     color: #dc3545;
+}
+.news a {
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+    color: #007bff;
+    text-decoration: none;
 }
