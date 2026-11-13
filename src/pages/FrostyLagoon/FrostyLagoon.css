@@ -1,0 +1,74 @@
+main {
+    padding: 0;
+    margin: 0;
+}
+.frostylagoon-content {
+    text-align: center;
+    margin-top: 50px;
+}
+.frostylagoon-title {
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+.frostylagoon-description {
+    font-size: 1.2em;
+    line-height: 1.6;
+}
+.frostylagoon-versions {
+    width: 90%;
+    padding: 20px;
+    margin: 30px auto;
+    background-color: #333;
+    border-radius: 8px;
+    text-align: center;
+}
+.frostylagoon-versions h3 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+.frostylagoon-version-stable, .frostylagoon-version-testing {
+    font-size: 1.2em;
+}
+.frostylagoon-version-stable p, .frostylagoon-version-testing p {
+    margin: 5px 0;
+    display: flex;
+    flex-direction: column;
+}
+.frostylagoon-version-stable p {
+    color: #4caf50;
+}
+.frostylagoon-version-testing p {
+    color: #ff9800;
+}
+.frostylagoon-version-stable span, .frostylagoon-version-testing span {
+    display: inline-block;
+    margin-right: 10px;
+}
+.frostylagoon-addresses {
+    width: 90%;
+    padding: 20px;
+    margin: 30px auto;
+    background-color: #333;
+    border-radius: 8px;
+    text-align: center;
+}
+.frostylagoon-addresses h2 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+.frostylagoon-addresses p {
+    margin: 5px 0;
+}
+.frostylagoon-address h3 {
+    font-size: 1.2em;
+    margin-bottom: 5px;
+}
+.frostylagoon-address p {
+    margin: 5px 0;
+}
+.frostylagoon-address-description {
+    background-color: #444;
+    padding: 10px;
+    border-radius: 4px;
+    margin-top: 20px;
+}

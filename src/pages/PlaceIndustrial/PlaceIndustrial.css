@@ -1,0 +1,74 @@
+main {
+    padding: 0;
+    margin: 0;
+}
+.placeindustrial-content {
+    text-align: center;
+    margin-top: 50px;
+}
+.placeindustrial-title {
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+.placeindustrial-description {
+    font-size: 1.2em;
+    line-height: 1.6;
+}
+.placeindustrial-versions {
+    width: 90%;
+    padding: 20px;
+    margin: 30px auto;
+    background-color: #333;
+    border-radius: 8px;
+    text-align: center;
+}
+.placeindustrial-versions h3 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+.placeindustrial-version-stable, .placeindustrial-version-testing {
+    font-size: 1.2em;
+}
+.placeindustrial-version-stable p, .placeindustrial-version-testing p {
+    margin: 5px 0;
+    display: flex;
+    flex-direction: column;
+}
+.placeindustrial-version-stable p {
+    color: #4caf50;
+}
+.placeindustrial-version-testing p {
+    color: #ff9800;
+}
+.placeindustrial-version-stable span, .placeindustrial-version-testing span {
+    display: inline-block;
+    margin-right: 10px;
+}
+.placeindustrial-addresses {
+    width: 90%;
+    padding: 20px;
+    margin: 30px auto;
+    background-color: #333;
+    border-radius: 8px;
+    text-align: center;
+}
+.placeindustrial-addresses h2 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+.placeindustrial-addresses p {
+    margin: 5px 0;
+}
+.placeindustrial-address h3 {
+    font-size: 1.2em;
+    margin-bottom: 5px;
+}
+.placeindustrial-address p {
+    margin: 5px 0;
+}
+.placeindustrial-address-description {
+    background-color: #444;
+    padding: 10px;
+    border-radius: 4px;
+    margin-top: 20px;
+}

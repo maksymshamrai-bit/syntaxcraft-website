@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import Hero from '../../components/Hero/Hero';
 import { News } from '../../components/News/News';
 import Footer from '../../components/Footer/Footer';
@@ -14,6 +15,7 @@ function Home() {
                         <div className='server-card' key={item.id}>
                             <h3 className='server-card-title'>{item.name}</h3>
                             <p className='server-client-text'>{item.description}</p>
+                            <Link to={`/${item.link}`}>Детальніше</Link>
                         </div>
                     )}
                 </section>

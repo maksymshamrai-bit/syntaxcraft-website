@@ -1,0 +1,80 @@
+main {
+    padding: 0;
+    margin: 0;
+}
+.leontar-content {
+    text-align: center;
+    margin-top: 50px;
+}
+.leontar-title {
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+.leontar-description {
+    font-size: 1.2em;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+.leontar-history {
+    font-size: 1.2em;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+.leontar-versions {
+    width: 90%;
+    padding: 20px;
+    margin: 30px auto;
+    background-color: #333;
+    border-radius: 8px;
+    text-align: center;
+}
+.leontar-versions h3 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+.leontar-version-stable, .leontar-version-testing {
+    font-size: 1.2em;
+}
+.leontar-version-stable p, .leontar-version-testing p {
+    margin: 5px 0;
+    display: flex;
+    flex-direction: column;
+}
+.leontar-version-stable p {
+    color: #4caf50;
+}
+.leontar-version-testing p {
+    color: #ff9800;
+}
+.leontar-version-stable span, .leontar-version-testing span {
+    display: inline-block;
+    margin-right: 10px;
+}
+.leontar-addresses {
+    width: 90%;
+    padding: 20px;
+    margin: 30px auto;
+    background-color: #333;
+    border-radius: 8px;
+    text-align: center;
+}
+.leontar-addresses h2 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+.leontar-addresses p {
+    margin: 5px 0;
+}
+.leontar-address h3 {
+    font-size: 1.2em;
+    margin-bottom: 5px;
+}
+.leontar-address p {
+    margin: 5px 0;
+}
+.leontar-address-description {
+    background-color: #444;
+    padding: 10px;
+    border-radius: 4px;
+    margin-top: 20px;
+}
