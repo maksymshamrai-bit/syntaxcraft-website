@@ -4,8 +4,12 @@ import { defineConfig } from 'vite'
 
 // https://vite.dev/config/
 export default defineConfig({
+  base: '/syntaxcraft-website/',
   plugins: [
-    react(),
-    babel({ presets: [reactCompilerPreset()] })
+    react({
+      babel: {
+        plugins: [['babel-plugin-react-compiler']],
+      },
+    }),
   ],
 })

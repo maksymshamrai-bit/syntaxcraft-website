@@ -29,7 +29,7 @@
     height: auto;
     display: block;
 }
-.hero p {
+.hero-subtitle {
     font-family: 'Rubik', sans-serif;
     font-size: 3rem;
     color: #ffffff;
