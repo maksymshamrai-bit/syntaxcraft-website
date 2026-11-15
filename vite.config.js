@@ -4,7 +4,7 @@ import { defineConfig } from 'vite'
 
 // https://vite.dev/config/
 export default defineConfig({
-  base: '/syntaxcraft-website/',
+  base: '/',
   plugins: [
     react({
       babel: {

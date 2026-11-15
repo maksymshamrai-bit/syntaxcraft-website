@@ -3,6 +3,7 @@ import Home from './pages/Home/Home';
 import { Leontar } from './pages/Leontar/Leontar';
 import { FrostyLagoon } from './pages/FrostyLagoon/FrostyLagoon';
 import { PlaceIndustrial } from './pages/PlaceIndustrial/PlaceIndustrial';
+import { Contact } from './pages/Contact/Contact';
 import './App.css';
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
           <Route path="/leontar" element={<Leontar />} />
           <Route path="/frosty-lagoon" element={<FrostyLagoon />} />
           <Route path="/place-industrial" element={<PlaceIndustrial />} />
+          <Route path="/contact" element={<Contact />} />
         </Routes>
       </div>
     </Router>
