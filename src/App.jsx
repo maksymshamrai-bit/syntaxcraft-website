@@ -4,6 +4,7 @@ import { Leontar } from './pages/Leontar/Leontar';
 import { FrostyLagoon } from './pages/FrostyLagoon/FrostyLagoon';
 import { PlaceIndustrial } from './pages/PlaceIndustrial/PlaceIndustrial';
 import { Contact } from './pages/Contact/Contact';
+import { NewsPage } from './pages/News/NewsPage';
 import './App.css';
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
           <Route path="/frosty-lagoon" element={<FrostyLagoon />} />
           <Route path="/place-industrial" element={<PlaceIndustrial />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path='/news' element={<NewsPage />}/>
         </Routes>
       </div>
     </Router>

@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { NewsCard } from './NewsCard';
 import './News.css';
 
@@ -43,8 +44,9 @@ export const News = () => {
                     <NewsCard key={article.id} article={article} />
                 ))}
             </div>
+            <Link to={`/news`}>Усі новини</Link>
             <a href="https://t.me/+ZaXXfDKhA442MWRk" target="_blank" rel="noopener noreferrer">
-                Підписатися на новини
+                Підписатися на новини у Telegram
             </a>
         </section>
     )

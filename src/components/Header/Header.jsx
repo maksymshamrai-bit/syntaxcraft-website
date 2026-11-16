@@ -21,7 +21,7 @@ function Header() {
                     </li>
                 </ul>
             </nav>
-            <nav className="header-nav">
+            <nav className="header-nav header-socials">
                 <ul>
                     <li><Link to="/">Головна</Link></li>
                     <li><Link to="/servers">Сервери</Link></li>

@@ -10,12 +10,22 @@ main {
     font-size: 2em;
     margin-bottom: 20px;
 }
-.frostylagoon-description {
-    font-size: 1.2em;
-    line-height: 1.6;
+.frostylagoon-description,
+.frostylagoon-history {
+    max-width: 1250px;
+    margin: 20px auto;
+    padding: 0 20px;
+    line-height: 1.7;
+    text-align: center;
+    color: #e5e5e5;
+}
+.frostylagoon-content-blocks {
+    display: flex;
+    gap: 30px;
+    margin: 30px;
 }
 .frostylagoon-versions {
-    width: 90%;
+    width: 50%;
     padding: 20px;
     margin: 30px auto;
     background-color: #333;
@@ -45,7 +55,7 @@ main {
     margin-right: 10px;
 }
 .frostylagoon-addresses {
-    width: 90%;
+    width: 50%;
     padding: 20px;
     margin: 30px auto;
     background-color: #333;

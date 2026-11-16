@@ -1,25 +1,82 @@
 .header {
-    background-color: #8b38cc;
-    color: #fff;
-    padding: 10px 20px;
     display: flex;
+    align-items: center;
     justify-content: space-between;
+    width: 100%;
+    min-height: 50px;
+    padding: 0 20px;
+    box-sizing: border-box;
+    background-color: #9038cc;
 }
+
 .header-title {
+    color: white;
+    font-size: 22px;
     margin: 0;
-    font-size: 24px;
+    white-space: nowrap;
 }
-.header-nav ul {
-    list-style: none;
-    margin: 0;
-    padding-top: 7px;
-    padding-left: 15px;
+
+/* Навігація та соціальні мережі */
+.header-nav {
     display: flex;
+    align-items: center;
 }
-.header-nav li {
-    margin-right: 20px;
+
+.header-nav ul {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
 }
+
+/* Посилання */
 .header-nav a {
-    color: #fff;
+    color: white;
     text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.2s ease;
+}
+
+/* Соціальні іконки */
+.header-nav:first-of-type svg {
+    width: 20px;
+    height: 20px;
+    display: block;
+}
+
+.header-nav:first-of-type a:hover {
+    transform: scale(1.2);
+    opacity: 0.8;
+}
+.header-socials ul {
+    gap: 20px;
+}
+
+.header-socials a {
+    transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+.header-socials svg {
+    width: 22px;
+    height: 22px;
+}
+
+.header-socials a:hover {
+    transform: scale(1.2);
+    opacity: 0.8;
+    cursor: pointer;
+}
+
+/* Текстові посилання */
+.header-nav:last-of-type a {
+    font-size: 15px;
+}
+
+.header-nav:last-of-type a:hover {
+    opacity: 0.75;
 }
