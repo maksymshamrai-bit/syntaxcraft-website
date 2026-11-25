@@ -36,10 +36,6 @@ export const News = () => {
     return (
         <section className='news'>
             <div className='container'>
-                <div className='news-header'>
-                    <h2 className='news-title'>Новини</h2>
-                    <p className='news-summary'>Останні новини та оновлення про SyntaxCraft.</p>
-                </div>
                 {news.map((article) => (
                     <NewsCard key={article.id} article={article} />
                 ))}

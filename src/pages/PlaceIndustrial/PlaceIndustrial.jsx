@@ -36,8 +36,9 @@ export const PlaceIndustrial = () => {
 
     return (
         <div className="placeindustrial-page">
+            <title>Сервер "PlaceIndustrial"</title>
             <Header />
-            <main>
+            <main className='placeindustrial-page'>
                 <div className="placeindustrial-content">
                     <h1 className="placeindustrial-title">PlaceIndustrial Server</h1>
                     <p className="placeindustrial-description">У розробці. Слідкуйте за оновленнями!</p>

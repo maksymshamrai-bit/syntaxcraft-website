@@ -3,18 +3,27 @@ import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
 import './FrostyLagoon.css';
 
+const SHEET_API_URL =
+    'https://opensheet.elk.sh/19nYYHDEW-9DyYZXxNrqJ8-O04RcvLf6YNR97NgzXF48/Versions';
+
 export const FrostyLagoon = () => {
     const [versions, setVersions] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
-
-    const SHEET_API_URL = 'https://opensheet.elk.sh/19nYYHDEW-9DyYZXxNrqJ8-O04RcvLf6YNR97NgzXF48/Versions';
+    const [copied, setCopied] = useState('');
+    const [copyError, setCopyError] = useState('');
 
     useEffect(() => {
         const fetchVersion = async () => {
-            setLoading(true);
             try {
+                setLoading(true);
+
                 const response = await fetch(SHEET_API_URL);
+
+                if (!response.ok) {
+                    throw new Error('Не вдалося завантажити версії');
+                }
+
                 const data = await response.json();
                 setVersions(data);
             } catch (err) {
@@ -27,97 +36,292 @@ export const FrostyLagoon = () => {
         fetchVersion();
     }, []);
 
-    if (loading) return <p className='frostylagoon-loading'>Завантаження версій...</p>;
-    if (error) return <p className='frostylagoon-error'>Помилка: {error}</p>;
+    const stableVersions = versions.filter(
+        v => v.type === 'stable'
+    );
 
-    // Фільтруємо версії за колонкою "type"
-    const stableVersions = versions.filter(v => v.type === 'stable');
-    const testingVersions = versions.filter(v => v.type === 'testing');
+    const testingVersions = versions.filter(
+        v => v.type === 'testing'
+    );
+
+    const copyAddress = async (address, id) => {
+        try {
+            await navigator.clipboard.writeText(address);
+
+            setCopied(id);
+            setCopyError('');
+
+            setTimeout(() => {
+                setCopied('');
+            }, 2000);
+        } catch {
+            setCopyError('Не вдалося скопіювати. Спробуй вручну.');
+        }
+    };
+
+    const renderVersions = (list) => (
+        list.length > 0 ? (
+            list.map((v, i) => (
+                <div className="frostylagoon-version-item" key={v.id || i}>
+                    <div className="frostylagoon-version-info">
+                        <b>{v.version}</b>
+
+                        <span>
+                            {v.loader !== '-' ? v.loader : 'Vanilla'}
+                            {' · '}
+                            {v.edition}
+                            {' · '}
+                            {v.game}
+                        </span>
+                    </div>
+
+                    <span className="frostylagoon-version-date">
+                        {v.date}
+                    </span>
+                </div>
+            ))
+        ) : (
+            <p className="frostylagoon-empty">
+                Немає доступних версій
+            </p>
+        )
+    );
+
+    if (loading) {
+        return (
+            <div className="frostylagoon-page">
+                <Header />
+                <main className="frostylagoon-loading">
+                    ❄ Завантаження версій...
+                </main>
+                <Footer />
+            </div>
+        );
+    }
+
+    if (error) {
+        return (
+            <div className="frostylagoon-page">
+                <Header />
+                <main className="frostylagoon-error">
+                    Помилка: {error}
+                </main>
+                <Footer />
+            </div>
+        );
+    }
 
     return (
         <div className="frostylagoon-page">
+            <title>Сервер "Морозна Лагуна"</title>
+
             <Header />
+
             <main>
-                <div className="frostylagoon-content">
-                    <h1 className="frostylagoon-title">Frosty Lagoon Server</h1>
-                    <p className="frostylagoon-description">
-                        Леонтар — це сервер-місто для гравців Minecraft. Чи можливо побудувати
-                        величне місто посеред такого незвичайного біому, як Месса?
 
-                        Відповідь на це запитання ви знайдете на нашому сервері. Ми пропонуємо
-                        унікальний ігровий досвід, де ви зможете насолоджуватися красою та
-                        особливостями цього біому, розвивати власні проєкти й взаємодіяти
-                        з іншими гравцями у спільному світі.
-                    </p>
-                    <p className="frostylagoon-history">
-                        Історія нашого проєкту розпочалася у 2023 році, хоча сам сервер був
-                        створений ще у 2021 році для іншого проєкту.
+                {/* HERO */}
+                <section className="frostylagoon-hero">
+                    <div className="frostylagoon-hero-content">
 
-                        Згодом ми вирішили змінити концепцію та створити щось нове —
-                        проєкт, який буде цікавішим і захопливішим для гравців.
+                        <span className="frostylagoon-label">
+                            SYNTAXCRAFT WINTER PROJECT
+                        </span>
 
-                        Так з'явилося місто, яке спочатку мало назву «Месса-Сіті».
-                        Проте з часом ми вирішили перейменувати його на «Леонтар» —
-                        назву, що символізує силу та велич цього міста.
+                        <h1>FROSTY LAGOON</h1>
 
-                        Біом Месса, який став основою нашого проєкту, відкриває
-                        унікальні можливості для будівництва та розвитку міста,
-                        а також створює неповторну ігрову атмосферу.
+                        <p>
+                            Відчуй магію зими та створи власну
+                            новорічну історію!
+                        </p>
 
-                        У 2025 році ми створили другу версію міста у Minecraft Java Edition.
+                        <span className="frostylagoon-status">
+                            <span className="frosty-status-dot"></span>
+                            Зимовий святковий проєкт
+                        </span>
 
-                        Сьогодні ми продовжуємо розвивати наш проєкт і запрошуємо
-                        всіх охочих долучитися до нашої спільноти, стати частиною
-                        історії Леонтару та насолоджуватися грою на нашому сервері.
-                    </p>
-                </div>
-                <div className='frostylagoon-content-blocks'>
-                    <div className="frostylagoon-versions">
-                        <div className="frostylagoon-version-stable">
-                            <h3>Стабільні версії:</h3>
-                            <p>
-                                {stableVersions.length > 0 ? stableVersions.map((v, i) => (
-                                    <span key={v.id || i}>
-                                        <b>{v.version}</b> ({v.loader !== '-' ? v.loader : 'Vanilla'}, {v.edition}, {v.game}) {v.date}
-                                        {i < stableVersions.length - 1 ? ' ' : ''}
-                                    </span>
-                                )) : <span>Немає даних</span>}
-                            </p>
-                        </div>
-                        <div className="frostylagoon-version-testing">
-                            <h3>Тестові версії:</h3>
-                            <p>
-                                {testingVersions.length > 0 ? testingVersions.map((v, i) => (
-                                    <span key={v.id || i}>
-                                        <b>{v.version}</b> ({v.loader !== '-' ? v.loader : 'Vanilla'}, {v.edition}, {v.game}) {v.date}
-                                        {i < testingVersions.length - 1 ? ' ' : ''}
-                                    </span>
-                                )) : <span>Немає даних</span>}
-                            </p>
-                        </div>
                     </div>
-                    <div className="frostylagoon-addresses">
-                        <h2 className="frostylagoon-addresses-title">Адреси серверу:</h2>
-                        <div className="frostylagoon-address">
+                </section>
+
+                {/* ABOUT */}
+                <section className="frostylagoon-about">
+
+                    <div className="frostylagoon-section-heading">
+                        <span>01 / ПРО ПРОЄКТ</span>
+                        <h2>Зима починається тут</h2>
+                    </div>
+
+                    <p>
+                        Frosty Lagoon — це святковий зимовий проєкт
+                        Minecraft, створений для тих, хто хоче
+                        відчути справжню атмосферу зимових свят.
+
+                        Тут на тебе чекає особлива зимова атмосфера,
+                        можливість будувати власну новорічну резиденцію
+                        та насолоджуватися святковим вайбом разом
+                        з іншими гравцями.
+                    </p>
+
+                    <div className="frostylagoon-history">
+                        <h3>Святкова атмосфера</h3>
+
+                        <p>
+                            Уяви засніжені пейзажі, затишні будиночки,
+                            святкові прикраси та новорічну атмосферу.
+
+                            Frosty Lagoon створений для того, щоб
+                            кожен гравець міг побудувати власний
+                            зимовий куточок, прикрасити його
+                            та провести час у святковій атмосфері.
+
+                            Побудуй свою новорічну резиденцію,
+                            відкрий для себе зимовий світ
+                            та стань частиною Frosty Lagoon!
+                        </p>
+                    </div>
+
+                </section>
+
+                {/* VERSIONS AND ADDRESSES */}
+                <section className="frostylagoon-details">
+
+                    {/* VERSIONS */}
+                    <div className="frostylagoon-card">
+
+                        <div className="frostylagoon-card-heading">
+                            <span>02 / ВЕРСІЇ</span>
+                            <h2>Версії Minecraft</h2>
+                        </div>
+
+                        <div className="frostylagoon-version-group">
+
+                            <h3 className="frosty-stable-heading">
+                                <span className="frosty-version-dot stable-dot"></span>
+                                Стабільні версії
+                            </h3>
+
+                            {renderVersions(stableVersions)}
+
+                        </div>
+
+                        <div className="frostylagoon-version-group">
+
+                            <h3 className="frosty-testing-heading">
+                                <span className="frosty-version-dot testing-dot"></span>
+                                Тестові версії
+                            </h3>
+
+                            {renderVersions(testingVersions)}
+
+                        </div>
+
+                    </div>
+
+                    {/* ADDRESSES */}
+                    <div className="frostylagoon-card">
+
+                        <div className="frostylagoon-card-heading">
+                            <span>03 / ПІДКЛЮЧЕННЯ</span>
+                            <h2>Адреси сервера</h2>
+                        </div>
+
+                        {/* JAVA */}
+                        <div className="frostylagoon-address-group">
+
+                            <span className="frosty-edition-label">
+                                JAVA EDITION
+                            </span>
+
                             <h3>Minecraft Java Edition</h3>
-                            <p>frostylagoon.aternos.me</p>
+
+                            <div className="frostylagoon-copy">
+                                <code>frostylagoonjava.aternos.me</code>
+
+                                <button
+                                    onClick={() => copyAddress(
+                                        'frostylagoonjava.aternos.me',
+                                        'java'
+                                    )}
+                                >
+                                    {copied === 'java'
+                                        ? 'Скопійовано!'
+                                        : 'Копіювати'}
+                                </button>
+                            </div>
+
                         </div>
-                        <div className="frostylagoon-address">
+
+                        {/* BEDROCK */}
+                        <div className="frostylagoon-address-group">
+
+                            <span className="frosty-edition-label">
+                                BEDROCK EDITION
+                            </span>
+
                             <h3>Minecraft Bedrock Edition</h3>
-                            <p>lwecia.aternos.me 19132</p>
-                        </div>
-                        <div className="frostylagoon-address-description">
-                            <p className="frostylagoon-addresses-description">
-                                Для гри доступні стабільні версії без модифікацій. Тестові версії та модифковані версії доступні приватно.
+
+                            <div className="frostylagoon-copy">
+                                <code>frostylagoon.aternos.me</code>
+
+                                <button
+                                    onClick={() => copyAddress(
+                                        'frostylagoon.aternos.me',
+                                        'bedrock'
+                                    )}
+                                >
+                                    {copied === 'bedrock'
+                                        ? 'Скопійовано!'
+                                        : 'Копіювати'}
+                                </button>
+                            </div>
+
+                            <p className="frostylagoon-port">
+                                Порт: 19132
                             </p>
-                            <p className="frostylagoon-addresses-description">
-                                Для доступу до тестових та модифкованих версій необхідно звернутися до адміністратора.
-                            </p>
+
+                            <button
+                                className="frostylagoon-port-copy"
+                                onClick={() => copyAddress(
+                                    '19132',
+                                    'port'
+                                )}
+                            >
+                                {copied === 'port'
+                                    ? 'Скопійовано!'
+                                    : 'Копіювати порт'}
+                            </button>
+
                         </div>
+
+                        {/* NOTICE */}
+                        <div className="frostylagoon-notice">
+
+                            <p>
+                                Для гри доступні стабільні версії
+                                без модифікацій. Тестові версії
+                                та модифіковані версії доступні приватно.
+                            </p>
+
+                            <p>
+                                Для доступу до тестових та модифікованих
+                                версій необхідно звернутися
+                                до адміністратора.
+                            </p>
+
+                        </div>
+
+                        {copyError && (
+                            <p className="frostylagoon-copy-error">
+                                {copyError}
+                            </p>
+                        )}
+
                     </div>
-                </div>
+
+                </section>
+
             </main>
+
             <Footer />
         </div>
     );
-}
+};

@@ -19,7 +19,7 @@ function ModalWindow({ onClose }) {
           </div>
           <div className="server-info">
             <h3>Frosty Lagoon</h3>
-            <p className="serv-ip">Приватний сервер. Наразі недоступний.</p>
+            <p className="serv-ip">IP: frostylagoonjava.aternos.me</p>
           </div>
           <div className="server-info">
             <h3>PlaceIndustrial</h3>

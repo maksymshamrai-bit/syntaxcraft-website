@@ -1,84 +1,563 @@
-main {
-    padding: 0;
-    margin: 0;
-}
-.frostylagoon-content {
-    text-align: center;
-    margin-top: 50px;
-}
-.frostylagoon-title {
-    font-size: 2em;
-    margin-bottom: 20px;
-}
-.frostylagoon-description,
-.frostylagoon-history {
-    max-width: 1250px;
-    margin: 20px auto;
-    padding: 0 20px;
-    line-height: 1.7;
-    text-align: center;
-    color: #e5e5e5;
-}
-.frostylagoon-content-blocks {
-    display: flex;
-    gap: 30px;
-    margin: 30px;
-}
-.frostylagoon-versions {
-    width: 50%;
-    padding: 20px;
-    margin: 30px auto;
-    background-color: #333;
-    border-radius: 8px;
-    text-align: center;
-}
-.frostylagoon-versions h3 {
-    font-size: 1.5em;
-    margin-bottom: 10px;
-}
-.frostylagoon-version-stable, .frostylagoon-version-testing {
-    font-size: 1.2em;
-}
-.frostylagoon-version-stable p, .frostylagoon-version-testing p {
-    margin: 5px 0;
+
+/* ==============================
+   GENERAL
+============================== */
+
+.frostylagoon-page {
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
+
+    background: #101722;
+    color: #f5f9ff;
 }
-.frostylagoon-version-stable p {
-    color: #4caf50;
+
+.frostylagoon-page main {
+    flex: 1;
 }
-.frostylagoon-version-testing p {
-    color: #ff9800;
+
+.frostylagoon-page * {
+    box-sizing: border-box;
 }
-.frostylagoon-version-stable span, .frostylagoon-version-testing span {
-    display: inline-block;
-    margin-right: 10px;
-}
-.frostylagoon-addresses {
-    width: 50%;
-    padding: 20px;
-    margin: 30px auto;
-    background-color: #333;
-    border-radius: 8px;
+
+/* ==============================
+   HERO
+============================== */
+
+.frostylagoon-hero {
+    min-height: 310px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
     text-align: center;
+    padding: 55px 20px;
+
+    background:
+        radial-gradient(
+            ellipse at 50% 100%,
+            rgba(65, 173, 225, 0.24),
+            transparent 65%
+        ),
+        linear-gradient(
+            135deg,
+            #142b40,
+            #101722 75%
+        );
+
+    border-bottom: 1px solid #263f54;
+    position: relative;
+    overflow: hidden;
 }
-.frostylagoon-addresses h2 {
-    font-size: 1.5em;
-    margin-bottom: 10px;
+
+.frostylagoon-hero::before,
+.frostylagoon-hero::after {
+    content: "❄";
+    position: absolute;
+    color: rgba(139, 225, 255, 0.09);
+    font-size: 180px;
+    pointer-events: none;
 }
-.frostylagoon-addresses p {
-    margin: 5px 0;
+
+.frostylagoon-hero::before {
+    top: -45px;
+    left: 8%;
 }
-.frostylagoon-address h3 {
-    font-size: 1.2em;
-    margin-bottom: 5px;
+
+.frostylagoon-hero::after {
+    bottom: -65px;
+    right: 8%;
 }
-.frostylagoon-address p {
-    margin: 5px 0;
+
+.frostylagoon-hero-content {
+    position: relative;
+    z-index: 1;
+    animation: frostyFade 0.8s ease;
 }
-.frostylagoon-address-description {
-    background-color: #444;
-    padding: 10px;
-    border-radius: 4px;
-    margin-top: 20px;
+
+.frostylagoon-label {
+    color: #75d8ff;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 4px;
+}
+
+.frostylagoon-hero h1 {
+    font-size: clamp(38px, 7vw, 72px);
+    font-weight: 900;
+    letter-spacing: 4px;
+
+    margin: 18px 0;
+
+    color: #ffffff;
+
+    text-shadow:
+        0 0 15px rgba(85, 200, 245, 0.4),
+        0 0 40px rgba(85, 200, 245, 0.2);
+}
+
+.frostylagoon-hero-content > p {
+    color: #c5d9e9;
+    font-size: 17px;
+    margin-bottom: 25px;
+}
+
+.frostylagoon-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+
+    padding: 9px 17px;
+
+    background: rgba(85, 200, 245, 0.1);
+    border: 1px solid rgba(85, 200, 245, 0.3);
+    border-radius: 30px;
+
+    color: #83dcff;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.frosty-status-dot {
+    width: 8px;
+    height: 8px;
+
+    background: #55c8f5;
+    border-radius: 50%;
+
+    box-shadow: 0 0 10px #55c8f5;
+}
+
+/* ==============================
+   ABOUT
+============================== */
+
+.frostylagoon-about {
+    max-width: 1150px;
+    width: 100%;
+
+    margin: 0 auto;
+    padding: 65px 25px 35px;
+}
+
+.frostylagoon-section-heading {
+    margin-bottom: 25px;
+}
+
+.frostylagoon-section-heading > span,
+.frostylagoon-card-heading > span {
+    color: #55c8f5;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.frostylagoon-section-heading h2 {
+    font-size: 30px;
+    margin: 10px 0 0;
+    color: #ffffff;
+}
+
+.frostylagoon-about > p,
+.frostylagoon-history > p {
+    color: #b8c7d5;
+    font-size: 15px;
+    line-height: 1.9;
+    white-space: pre-line;
+}
+
+.frostylagoon-history {
+    margin-top: 35px;
+    padding: 25px;
+
+    background: #172331;
+    border: 1px solid #2b4357;
+    border-radius: 12px;
+
+    border-left: 3px solid #55c8f5;
+}
+
+.frostylagoon-history h3 {
+    color: #ffffff;
+    font-size: 21px;
+    margin: 0 0 15px;
+}
+
+.frostylagoon-history p {
+    margin: 0;
+}
+
+/* ==============================
+   DETAILS
+============================== */
+
+.frostylagoon-details {
+    max-width: 1450px;
+    width: 100%;
+
+    margin: 0 auto;
+    padding: 20px 25px 65px;
+
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 25px;
+
+    align-items: stretch;
+}
+
+/* ==============================
+   CARDS
+============================== */
+
+.frostylagoon-card {
+    position: relative;
+    overflow: hidden;
+
+    background: linear-gradient(
+        145deg,
+        #1b2a39,
+        #151f2c
+    );
+
+    border: 1px solid #30475b;
+    border-radius: 14px;
+
+    padding: 30px;
+
+    transition: 0.3s ease;
+}
+
+.frostylagoon-card:hover {
+    border-color: #55a9d0;
+
+    box-shadow:
+        0 8px 25px rgba(85, 200, 245, 0.09);
+}
+
+.frostylagoon-card-heading {
+    margin-bottom: 30px;
+}
+
+.frostylagoon-card-heading h2 {
+    color: #ffffff;
+    font-size: 25px;
+    margin: 10px 0 0;
+}
+
+/* ==============================
+   VERSIONS
+============================== */
+
+.frostylagoon-version-group {
+    margin-bottom: 28px;
+}
+
+.frostylagoon-version-group:last-child {
+    margin-bottom: 0;
+}
+
+.frostylagoon-version-group h3 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    font-size: 18px;
+    margin-bottom: 15px;
+}
+
+.frosty-stable-heading {
+    color: #62d48a;
+}
+
+.frosty-testing-heading {
+    color: #ffb957;
+}
+
+.frosty-version-dot {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+}
+
+.stable-dot {
+    background: #62d48a;
+    box-shadow: 0 0 10px rgba(98, 212, 138, 0.5);
+}
+
+.testing-dot {
+    background: #ffb957;
+    box-shadow: 0 0 10px rgba(255, 185, 87, 0.5);
+}
+
+.frostylagoon-version-item {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+
+    padding: 13px 15px;
+    margin-bottom: 8px;
+
+    background: #243646;
+    border: 1px solid #354e62;
+    border-radius: 8px;
+
+    transition: 0.2s ease;
+}
+
+.frostylagoon-version-item:hover {
+    background: #2b4356;
+    border-color: #55a9d0;
+}
+
+.frostylagoon-version-info {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.frostylagoon-version-info b {
+    color: #ffffff;
+    font-size: 15px;
+}
+
+.frostylagoon-version-info span {
+    color: #b1c4d5;
+    font-size: 13px;
+}
+
+.frostylagoon-version-date {
+    color: #91a9bc;
+    font-size: 12px;
+}
+
+.frostylagoon-empty {
+    color: #91a9bc;
+    font-size: 14px;
+}
+
+/* ==============================
+   ADDRESSES
+============================== */
+
+.frostylagoon-address-group {
+    margin-bottom: 25px;
+}
+
+.frosty-edition-label {
+    display: inline-block;
+
+    color: #75d8ff;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 2px;
+
+    margin-bottom: 8px;
+}
+
+.frostylagoon-address-group h3 {
+    font-size: 17px;
+    color: #ffffff;
+    margin: 0 0 13px;
+}
+
+.frostylagoon-copy {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+
+    padding: 12px 14px;
+
+    background: #243646;
+    border: 1px solid #3b596f;
+    border-radius: 8px;
+}
+
+.frostylagoon-copy code {
+    color: #9be4ff;
+    font-size: 14px;
+    overflow-wrap: anywhere;
+}
+
+.frostylagoon-copy button,
+.frostylagoon-port-copy {
+    background: #268fba;
+    color: white;
+
+    border: none;
+    border-radius: 6px;
+
+    padding: 9px 13px;
+
+    font-size: 12px;
+    font-weight: 700;
+
+    cursor: pointer;
+    transition: 0.25s ease;
+    flex-shrink: 0;
+}
+
+.frostylagoon-copy button:hover,
+.frostylagoon-port-copy:hover {
+    background: #43b8e8;
+
+    box-shadow:
+        0 0 14px rgba(85, 200, 245, 0.35);
+}
+
+.frostylagoon-port {
+    color: #b1c4d5;
+    font-size: 13px;
+    margin: 12px 0;
+}
+
+.frostylagoon-port-copy {
+    padding: 7px 12px;
+}
+
+/* ==============================
+   NOTICE
+============================== */
+
+.frostylagoon-notice {
+    margin-top: 30px;
+    padding: 18px;
+
+    background: rgba(85, 200, 245, 0.07);
+    border: 1px solid rgba(85, 200, 245, 0.2);
+    border-radius: 9px;
+}
+
+.frostylagoon-notice p {
+    color: #b8c7d5;
+    font-size: 13px;
+    line-height: 1.7;
+    margin: 0;
+}
+
+.frostylagoon-notice p + p {
+    margin-top: 10px;
+}
+
+.frostylagoon-copy-error {
+    color: #ff8888;
+    font-size: 13px;
+    margin-top: 15px;
+}
+
+/* ==============================
+   LOADING / ERROR
+============================== */
+
+.frostylagoon-loading,
+.frostylagoon-error {
+    flex: 1;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 50px 20px;
+    text-align: center;
+    font-size: 17px;
+}
+
+.frostylagoon-loading {
+    color: #75d8ff;
+}
+
+.frostylagoon-error {
+    color: #ff7777;
+}
+
+/* ==============================
+   ANIMATION
+============================== */
+
+@keyframes frostyFade {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ==============================
+   RESPONSIVE
+============================== */
+
+@media (max-width: 850px) {
+    .frostylagoon-details {
+        grid-template-columns: 1fr;
+    }
+
+    .frostylagoon-about {
+        padding-top: 45px;
+    }
+}
+
+@media (max-width: 550px) {
+    .frostylagoon-hero {
+        min-height: 260px;
+        padding: 40px 15px;
+    }
+
+    .frostylagoon-hero h1 {
+        letter-spacing: 1px;
+    }
+
+    .frostylagoon-hero-content > p {
+        font-size: 14px;
+    }
+
+    .frostylagoon-about {
+        padding: 40px 17px 25px;
+    }
+
+    .frostylagoon-section-heading h2 {
+        font-size: 24px;
+    }
+
+    .frostylagoon-about > p,
+    .frostylagoon-history > p {
+        font-size: 14px;
+    }
+
+    .frostylagoon-history {
+        padding: 19px;
+    }
+
+    .frostylagoon-details {
+        padding: 15px 15px 40px;
+        gap: 18px;
+    }
+
+    .frostylagoon-card {
+        padding: 20px;
+    }
+
+    .frostylagoon-card-heading h2 {
+        font-size: 22px;
+    }
+
+    .frostylagoon-version-item {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .frostylagoon-copy {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .frostylagoon-copy button {
+        width: 100%;
+    }
 }

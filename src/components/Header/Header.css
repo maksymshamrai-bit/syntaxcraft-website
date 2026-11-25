@@ -1,11 +1,15 @@
 .header {
+    position: relative;
+
     display: flex;
     align-items: center;
     justify-content: space-between;
+
     width: 100%;
     min-height: 50px;
     padding: 0 20px;
     box-sizing: border-box;
+
     background-color: #9038cc;
 }
 
@@ -52,6 +56,30 @@
 .header-nav:first-of-type a:hover {
     transform: scale(1.2);
     opacity: 0.8;
+}
+.header-socials {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+@media (max-width: 600px) {
+    .header-socials {
+        display: none;
+    }
+}
+.header-socials ul {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 20px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
 }
 .header-socials ul {
     gap: 20px;
